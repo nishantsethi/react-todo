@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function App() {
 
-  const [showAddTask, setShowAddTask] = useState(true)
+  const [showAddTask, setShowAddTask] = useState(false)
 
   const [tasks, setTasks] = useState([
     {
@@ -47,8 +47,10 @@ function App() {
   
   return (
     <div className="container">
-      <Header title="Task Tracker" onAdd={() => setShowAddTask(!showAddTask) }  
-      showAdd = {showAddTask}/>
+      <Header
+          onAdd={() => setShowAddTask(!showAddTask)}
+          showAdd={showAddTask}
+        />
 
       {showAddTask && <AddTask onAdd={addTask}/> }
       {
